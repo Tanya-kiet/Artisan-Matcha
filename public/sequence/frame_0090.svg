@@ -1,0 +1,13 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="1080" fill="#050505"/>
+  
+  <g transform="translate(960, 540) scale(0.9755282581475768) rotate(216)" stroke="rgba(0, 255, 204, 1)" stroke-width="4" fill="none">
+    <rect x="-300" y="-400" width="600" height="800" rx="40" />
+    <circle cx="0" cy="0" r="150" />
+    <circle cx="0" cy="0" r="100" stroke="rgba(255, 255, 255, 0.5)" />
+    <circle cx="0" cy="0" r="50" fill="rgba(0, 255, 204, 0.2)" />
+    
+    <path d="M-300,-200 L300,-200 M-300,200 L300,200" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2"/>
+    <path d="M-150,-400 L-150,400 M150,-400 L150,400" stroke="rgba(255, 255, 255, 0.3)" stroke-width="2"/>
+  </g>
+</svg>
