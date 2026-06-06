@@ -189,7 +189,7 @@ export default function Home() {
   }, [isLoaded]);
 
   return (
-    <main className="bg-[#0B0F08] font-sans selection:bg-[#4C7031]/30 min-h-screen">
+    <main className="bg-[#000000] font-sans selection:bg-[#4C7031]/30 min-h-screen">
       <CustomCursor />
       
       <LoadingScreen progress={loadingProgress} isLoaded={isLoaded} />
@@ -200,7 +200,7 @@ export default function Home() {
         transition={{ duration: 1.5, delay: 0.2 }}
       >
         {/* SCROLLYTELLING CANVAS SECTION - 400vh */}
-        <div ref={containerRef} className="relative w-full h-[400vh] bg-[#0B0F08] z-0">
+        <div ref={containerRef} className="relative w-full h-[400vh] bg-[#000000] z-0">
           <div className="sticky top-0 w-full h-screen overflow-hidden">
             
             <MatchaCanvasAnimation 
@@ -210,7 +210,7 @@ export default function Home() {
             />
 
             {/* Subtle dark gradient overlay for text readability on left side */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0B0F08]/80 via-transparent to-transparent opacity-80 z-[1] pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/80 via-transparent to-transparent opacity-80 z-[1] pointer-events-none" />
 
             {/* Radial Vignette Mask */}
             <div 
@@ -272,7 +272,7 @@ export default function Home() {
         </div>
 
         {/* ADDITIONAL SECTIONS */}
-        <div className="relative z-20 bg-[#0B0F08]">
+        <div className="relative z-20 bg-[#000000]">
           <IngredientSection />
           <CraftedDifferently />
           <ExperienceMetrics />

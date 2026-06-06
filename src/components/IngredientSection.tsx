@@ -58,7 +58,7 @@ export default function IngredientSection() {
   const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
   return (
-    <section className="w-full h-auto bg-[#0B0F08] py-24 px-8 md:px-16 lg:px-24 relative z-20 border-t border-white/[0.03]">
+    <section className="w-full h-auto bg-[#000000] py-24 px-8 md:px-16 lg:px-24 relative z-20 border-t border-white/[0.03]">
       <div className="max-w-7xl mx-auto flex flex-col gap-12" ref={sectionRef}>
         
         {/* Clean Typography Block */}
