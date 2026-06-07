@@ -285,7 +285,7 @@ export default function Home() {
           {/* DEDICATED STATIC FOOTER */}
           <footer className="relative mt-24 border-t border-white/10 py-12 px-6 md:px-12 bg-[#0B0F08] z-0">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-[#F4F6F2]/40 text-xs font-light uppercase tracking-widest">
-              <span>© 2026 Artisan Matcha</span>
+              <span>© 2026 Tanya Bhadana</span>
               <div className="flex gap-8">
                 <a href="#" className="hover:text-[#A3AE9E] transition-colors">Instagram</a>
                 <a href="#" className="hover:text-[#A3AE9E] transition-colors">Twitter</a>
