@@ -32,9 +32,9 @@ export default function CraftedDifferently() {
   const [activeTab, setActiveTab] = useState("modern");
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24  relative z-20 border-t border-white/[0.03]" style={{ backgroundColor: "#0B0F08" }}>
+    <section className="py-12 md:py-20 lg:py-32 px-6 md:px-12 lg:px-24  relative z-20 border-t border-white/[0.03]" style={{ backgroundColor: "#0B0F08" }}>
       <div className="max-w-7xl mx-auto" ref={sectionRef}>
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <motion.span 
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
@@ -47,7 +47,7 @@ export default function CraftedDifferently() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl md:text-6xl font-medium text-[#F4F6F2] tracking-tighter"
+            className="text-3xl md:text-5xl lg:text-6xl font-medium text-[#F4F6F2] tracking-tighter"
           >
             Crafted <span className="text-[#A3AE9E] italic">Differently.</span>
           </motion.h2>
@@ -55,13 +55,13 @@ export default function CraftedDifferently() {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Toggle buttons */}
-          <div className="flex justify-center mb-16 relative z-10">
-            <div className="flex  border border-[#F4F6F2]/[0.04] rounded-full p-1 shadow-lg" style={{ backgroundColor: "#0B0F08" }}>
+          <div className="flex justify-center mb-12 md:mb-16 relative z-10 w-full">
+            <div className="flex w-full md:w-auto border border-[#F4F6F2]/[0.04] rounded-full p-1 shadow-lg" style={{ backgroundColor: "#0B0F08" }}>
               {comparisonData.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative px-6 py-2 rounded-full text-xs font-semibold transition-colors duration-300 ${
+                  className={`relative w-1/2 md:w-auto px-4 md:px-6 py-2 md:py-3 rounded-full text-[10px] md:text-xs font-semibold transition-colors duration-300 ${
                     activeTab === tab.id ? "text-[#F4F6F2]" : "text-[#A3AE9E] hover:text-[#F4F6F2]"
                   }`}
                 >
@@ -79,7 +79,7 @@ export default function CraftedDifferently() {
           </div>
 
           {/* Content Area */}
-          <div className="relative min-h-[300px] border border-white/[0.04] rounded-3xl glass-panel p-8 md:p-12 overflow-hidden">
+          <div className="relative min-h-[300px] border border-white/[0.04] rounded-3xl glass-panel p-6 md:p-12 overflow-hidden">
             {/* Animated background pulse based on active tab */}
             <AnimatePresence mode="wait">
               <motion.div
@@ -110,7 +110,7 @@ export default function CraftedDifferently() {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
-                          className="flex items-center gap-6"
+                          className="flex items-center gap-4 md:gap-6"
                         >
                           <div className="relative flex items-center justify-center w-8 h-8 rounded-full border border-white/20 bg-white/5 shrink-0">
                             {tab.id === "modern" ? (
@@ -124,7 +124,7 @@ export default function CraftedDifferently() {
                               <div className="w-2 h-[2px] bg-white/30" />
                             )}
                           </div>
-                          <span className={`text-lg md:text-xl font-light ${tab.id === "modern" ? "text-[#F4F6F2]/90" : "text-[#A3AE9E]"}`}>
+                          <span className={`text-base md:text-lg lg:text-xl font-light ${tab.id === "modern" ? "text-[#F4F6F2]/90" : "text-[#A3AE9E]"}`}>
                             {point}
                           </span>
                         </motion.li>

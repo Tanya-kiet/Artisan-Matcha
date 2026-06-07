@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const testimonials = [
   {
@@ -26,16 +26,9 @@ export default function Testimonials() {
   const headerRef = useRef(null);
   const isHeaderInView = useInView(headerRef, { once: true, margin: "-100px" });
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-
   return (
-    <section className="py-32  relative z-20 overflow-hidden" style={{ backgroundColor: "#0B0F08" }} ref={containerRef}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-20" ref={headerRef}>
+    <section className="py-12 md:py-20 lg:py-32 relative z-20 overflow-hidden" style={{ backgroundColor: "#0B0F08" }} ref={containerRef}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-12 md:mb-20" ref={headerRef}>
         <motion.span 
           initial={{ opacity: 0 }}
           animate={isHeaderInView ? { opacity: 1 } : { opacity: 0 }}
@@ -48,25 +41,26 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 30 }}
           animate={isHeaderInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="text-4xl md:text-6xl font-medium text-[#F4F6F2] tracking-tighter"
+          className="text-3xl md:text-5xl lg:text-6xl font-medium text-[#F4F6F2] tracking-tighter"
         >
           The <span className="text-[#A3AE9E] italic">Experience.</span>
         </motion.h2>
       </div>
 
-      <div className="pl-6 md:pl-12 lg:pl-24 flex">
-        <motion.div 
-          style={{ x }}
-          className="flex gap-8 md:gap-12 w-max"
-        >
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {testimonials.map((item, idx) => (
-            <div 
+            <motion.div 
               key={idx}
-              className="w-[85vw] md:w-[600px] flex-shrink-0 flex flex-col justify-between p-10 md:p-16 border border-white/[0.04] glass-panel"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="w-full flex flex-col justify-between p-8 md:p-12 border border-white/[0.04] glass-panel"
             >
               <div className="mb-12">
                 <span className="text-6xl text-[#7BA05A]/40 font-serif leading-none absolute -top-4 -left-2 select-none">&quot;</span>
-                <p className="text-2xl md:text-4xl font-light text-[#F4F6F2]/90 leading-tight tracking-tight relative z-10">
+                <p className="text-xl md:text-2xl font-light text-[#F4F6F2]/90 leading-tight tracking-tight relative z-10">
                   {item.quote}
                 </p>
               </div>
@@ -78,12 +72,9 @@ export default function Testimonials() {
                   <p className="text-[#A3AE9E] text-xs uppercase tracking-widest mt-1">{item.role}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-          
-          {/* Spacer to ensure the last card can be scrolled fully into view */}
-          <div className="w-[10vw] md:w-[200px] flex-shrink-0" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

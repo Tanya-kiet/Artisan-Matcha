@@ -80,11 +80,17 @@ export default function MatchaCanvasAnimation({ scrollProgress, onProgress, onLo
         // 1. Start with contain scaling to ensure the entire composition is visible
         const containRatio = Math.min(hRatio, vRatio); 
         
-        // 2. Apply a slight 15% zoom to make it premium but not oversized (prevents cropping the cup)
-        const ratio = containRatio * 1.15; 
+        // Mobile layout detection
+        const isMobile = width < 768;
         
-        // 3. Shift the composition to the right (approx 15% of viewport) to leave safe space for text on the left
-        const rightShift = width * 0.15;
+        // 2. Apply a slight zoom to make it premium but not oversized
+        // For mobile, we use a smaller zoom to ensure cup/splash stay in view
+        const zoomFactor = isMobile ? 1.05 : 1.15;
+        const ratio = containRatio * zoomFactor; 
+        
+        // 3. Shift the composition to the right to leave safe space for text on the left
+        // On mobile, keep it centered since text overlays on bottom/middle
+        const rightShift = isMobile ? 0 : width * 0.15;
         const centerShift_x = ((width - img.width * ratio) / 2) + rightShift;
         const centerShift_y = (height - img.height * ratio) / 2;
         
@@ -114,7 +120,7 @@ export default function MatchaCanvasAnimation({ scrollProgress, onProgress, onLo
   return (
     <canvas 
       ref={canvasRef} 
-      className={`absolute inset-0 w-full h-full object-cover mix-blend-screen brightness-[1.02] contrast-[1.05] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+      className={`absolute inset-0 z-0 w-full h-full object-cover mix-blend-screen brightness-[1.02] contrast-[1.05] pointer-events-none transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
     />
   );
 }

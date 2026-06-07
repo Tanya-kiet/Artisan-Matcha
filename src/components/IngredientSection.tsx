@@ -36,13 +36,13 @@ const IngredientCard = ({ item, index }: { item: { title: string, description: s
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      className="group relative w-full flex flex-col bg-[#131A10] border border-white/[0.04] rounded-2xl p-8 hover:border-[#5E8C3B]/50 hover:-translate-y-1 transition-all duration-500 ease-out shadow-xl cursor-pointer"
+      className="group relative w-full flex flex-col bg-[#131A10] border border-white/[0.04] rounded-2xl p-6 md:p-8 hover:border-[#5E8C3B]/50 hover:-translate-y-1 transition-all duration-500 ease-out shadow-xl cursor-pointer"
     >
       <div className="relative z-10 flex flex-col h-full">
         <span className="text-[#5E8C3B] text-xs font-mono tracking-widest mb-4 block">
           {item.number}
         </span>
-        <h3 className="text-3xl md:text-4xl font-medium text-[#F4F6F2] tracking-tight mb-4">
+        <h3 className="text-2xl md:text-3xl lg:text-4xl font-medium text-[#F4F6F2] tracking-tight mb-4">
           {item.title}
         </h3>
         <p className="text-[#A3AE9E] text-sm leading-relaxed font-light mt-auto">
@@ -58,7 +58,7 @@ export default function IngredientSection() {
   const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
   return (
-    <section className="w-full h-auto bg-[#000000] py-24 px-8 md:px-16 lg:px-24 relative z-20 border-t border-white/[0.03]">
+    <section className="w-full h-auto bg-[#000000] py-12 md:py-20 lg:py-24 px-6 md:px-16 lg:px-24 relative z-20 border-t border-white/[0.03]">
       <div className="max-w-7xl mx-auto flex flex-col gap-12" ref={sectionRef}>
         
         {/* Clean Typography Block */}
@@ -74,14 +74,14 @@ export default function IngredientSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-[#F4F6F2] tracking-tighter mt-3 leading-none"
+            className="text-4xl md:text-6xl lg:text-8xl font-black text-[#F4F6F2] tracking-tighter mt-3 leading-none"
           >
             Uncompromising<br />Ingredients.
           </motion.h2>
         </div>
 
         {/* The card grid MUST start directly here. Absolute maximum spacing offset of 80px under heading */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full">
           {ingredients.map((item, idx) => (
             <IngredientCard key={idx} item={item} index={idx} />
           ))}

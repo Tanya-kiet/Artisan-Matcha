@@ -40,7 +40,7 @@ export default function CTASection() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="py-40  relative z-20 border-t border-white/[0.03] flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#0B0F08" }}>
+    <section ref={sectionRef} className="py-20 md:py-32 lg:py-40 relative z-20 border-t border-white/[0.03] flex flex-col items-center justify-center overflow-hidden" style={{ backgroundColor: "#0B0F08" }}>
       
       <div className="absolute inset-0 pointer-events-none">
         <motion.div 
@@ -58,7 +58,7 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl md:text-7xl lg:text-9xl font-medium text-[#F4F6F2] tracking-tighter mb-12"
+          className="text-4xl md:text-6xl lg:text-8xl font-medium text-[#F4F6F2] tracking-tighter mb-12"
         >
           TASTE THE <br className="hidden md:block" />
           FUTURE OF <span className="text-[#A3AE9E] italic">MATCHA.</span>
@@ -68,31 +68,18 @@ export default function CTASection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-6 items-center"
+          className="flex flex-col sm:flex-row gap-4 md:gap-6 items-center w-full sm:w-auto"
         >
-          <MagneticButton className="px-10 py-5 bg-white text-black text-sm font-medium tracking-wide uppercase hover:bg-white/90">
+          <MagneticButton className="w-full sm:w-auto min-h-[44px] px-6 md:px-10 py-4 md:py-5 bg-white text-black text-sm font-medium tracking-wide uppercase hover:bg-white/90">
             Order Now
           </MagneticButton>
           
-          <MagneticButton className="px-10 py-5 bg-transparent border border-white/20 text-[#F4F6F2] text-sm font-medium tracking-wide uppercase hover:bg-white/5 glass-panel">
+          <MagneticButton className="w-full sm:w-auto min-h-[44px] px-6 md:px-10 py-4 md:py-5 bg-transparent border border-white/20 text-[#F4F6F2] text-sm font-medium tracking-wide uppercase hover:bg-white/5 glass-panel">
             Join the Ritual
           </MagneticButton>
         </motion.div>
       </div>
       
-      {/* Footer minimal styling */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-10 left-0 w-full flex justify-between px-12 text-[#F4F6F2]/30 text-xs font-light uppercase tracking-widest"
-      >
-        <span>© 2026 Artisan Matcha</span>
-        <div className="flex gap-6">
-          <a href="#" className="hover:text-[#A3AE9E] transition-colors">Instagram</a>
-          <a href="#" className="hover:text-[#A3AE9E] transition-colors">Twitter</a>
-        </div>
-      </motion.div>
     </section>
   );
 }
